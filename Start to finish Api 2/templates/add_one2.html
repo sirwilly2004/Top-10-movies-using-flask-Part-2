@@ -1,0 +1,16 @@
+{% extends 'bootstrap/base.html' %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block content %}
+<div class="container">
+    <h1>Add a Movie via API</h1>
+    {{ wtf.quick_form(form, method='POST') }}  
+
+{% if form.title.errors %}  
+    <div>  
+        {% for error in form.title.errors %}  
+            <span style="color: red;">[{{ error }}]</span>  
+        {% endfor %}  
+    </div>  
+{% endif %}  
+{% endblock %}
